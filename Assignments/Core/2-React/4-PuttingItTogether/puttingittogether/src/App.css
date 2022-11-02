@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+h2 {
+  color: rgb(102, 132, 177);
+}
+
+*{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
