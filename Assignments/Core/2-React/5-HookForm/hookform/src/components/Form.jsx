@@ -23,6 +23,7 @@ const Form = (props) => {
         <div className='container'>
             <div className="col-sm bg-dark text-white p-2 mt-5 width-1">
                 <form className="form col-3 mx-auto" onSubmit={createUser}>
+
                     <label className="form-label">First Name:</label>
                     <input className='form-control' type="text" onChange={(e)=>setFirstName(e.target.value)} value={firstName}/>
 
