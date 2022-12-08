@@ -1,31 +1,28 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const List = () => {
+const List = ({removeProduct, product, setProduct}) => {
 
-    const [aProduct, setAProduct] = useState([])
-
-    useEffect(()=>{
-        axios.get('http://localhost:8000/api/getProducts')
+    const deleteHandler = (id) => {
+        axios.delete(`http://localhost:8000/api/deleteProduct/${id}`)
         .then((res)=>{
-            console.log(res.data)
-            setAProduct(res.data)
+            removeProduct(id)
         }).catch((err)=>{
             console.log(err)
         })
-    }, [])
+    }
 
   return (
     <div>
         <h2>All Products</h2>
         {
-            aProduct.map((product, index)=>(
+            product.map((item, index)=>(
                 <div key={index}>
-                    {/* <h2>{product.title}</h2> */}
-                        <Link to={`/api/getOneProduct/${product._id}`}>
-                            {product.title} 
+                        <Link to={`/api/getOneProduct/${item._id}`}>
+                            {item.title} 
                         </Link>
+                        <button onClick={(e)=>{deleteHandler(item._id)}}>Delete</button>
                 </div>
             ))
         }

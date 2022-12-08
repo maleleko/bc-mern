@@ -28,6 +28,15 @@ module.exports = {
         })
     },
 
+    updateProduct:(req, res) => {
+        Product.updateOne({_id:req.params.id}, req.body)
+        .then((result)=>{
+            res.json(result)
+        }).catch((err)=>{
+            console.log(err)
+        })
+    },
+
     deleteProduct:(req, res)=> {
         Product.deleteOne({_id:req.params.id}, req.body)
         .then((result)=>{

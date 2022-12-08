@@ -1,4 +1,5 @@
 const ProductController = require('../controllers/product.controller')
+const Product = require('../models/product.model')
 
 module.exports = (app) => {
     // create a product
@@ -9,6 +10,9 @@ module.exports = (app) => {
 
     // get one product
     app.get('/api/getOneProduct/:id', ProductController.getOneProduct)
+
+    // edit product
+    app.put('/api/updateProduct/:id', ProductController.updateProduct)
 
     // delete product
     app.delete('/api/deleteProduct/:id', ProductController.deleteProduct)
